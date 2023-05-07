@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: mysql
--- Время создания: Дек 19 2022 г., 15:30
+-- Время создания: Май 05 2023 г., 10:54
 -- Версия сервера: 8.0.29
 -- Версия PHP: 8.0.24
 
@@ -70,20 +70,23 @@ INSERT INTO `event` (`id`, `title`, `start`, `end`, `picture_url`) VALUES
 CREATE TABLE `Game` (
   `id` int NOT NULL COMMENT 'id игры',
   `id_team1` int NOT NULL COMMENT 'id первой команды',
-  `id_team2` int NOT NULL COMMENT 'id второй команды'
+  `id_team2` int NOT NULL COMMENT 'id второй команды',
+  `Goals1` int NOT NULL,
+  `Goals2` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='матч – id(PK), id_команды1 (FK), id_команды2 (FK)';
 
 --
 -- Дамп данных таблицы `Game`
 --
 
-INSERT INTO `Game` (`id`, `id_team1`, `id_team2`) VALUES
-(1, 1, 2),
-(5, 1, 3),
-(3, 1, 4),
-(4, 2, 3),
-(6, 2, 4),
-(2, 3, 4);
+INSERT INTO `Game` (`id`, `id_team1`, `id_team2`, `Goals1`, `Goals2`) VALUES
+(1, 1, 2, 3, 2),
+(2, 3, 4, 1, 2),
+(3, 1, 4, 1, 2),
+(4, 2, 3, 1, 2),
+(5, 1, 3, 1, 2),
+(6, 2, 4, 1, 2),
+(19, 2, 1, 10, 5);
 
 -- --------------------------------------------------------
 
@@ -110,7 +113,7 @@ INSERT INTO `Goal` (`id`, `id_game`, `id_player`, `time`) VALUES
 (5, 2, 14, 17),
 (6, 2, 4, 22),
 (7, 2, 19, 69),
-(8, 2, 13, 77),
+(8, 2, 3, 77),
 (9, 3, 12, 27),
 (10, 3, 4, 42),
 (11, 3, 15, 64),
@@ -163,18 +166,19 @@ INSERT INTO `Player` (`id`, `id_team`, `FIO`, `amplua`) VALUES
 
 CREATE TABLE `Team` (
   `id` int NOT NULL COMMENT 'id команды',
-  `Name` varchar(255) NOT NULL COMMENT 'наименование команды'
+  `Name` varchar(255) NOT NULL COMMENT 'наименование команды',
+  `emblem` text COMMENT 'Эмблема команды'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='команда – id(PK), наименование';
 
 --
 -- Дамп данных таблицы `Team`
 --
 
-INSERT INTO `Team` (`id`, `Name`) VALUES
-(1, 'PSG'),
-(2, 'Man Utd'),
-(3, 'Man City'),
-(4, 'Real');
+INSERT INTO `Team` (`id`, `Name`, `emblem`) VALUES
+(1, 'PSG', NULL),
+(2, 'Man Utd', NULL),
+(3, 'Man City', NULL),
+(4, 'Real', NULL);
 
 -- --------------------------------------------------------
 
@@ -272,13 +276,13 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT для таблицы `Game`
 --
 ALTER TABLE `Game`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT COMMENT 'id игры', AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT COMMENT 'id игры', AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT для таблицы `Goal`
 --
 ALTER TABLE `Goal`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT COMMENT 'id гола', AUTO_INCREMENT=23;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT COMMENT 'id гола', AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT для таблицы `Player`
