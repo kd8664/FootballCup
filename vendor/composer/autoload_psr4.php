@@ -17,8 +17,8 @@ return array(
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'GrahamCampbell\\ResultType\\' => array($vendorDir . '/graham-campbell/result-type/src'),
-    'Framework\\' => array($baseDir . '/Framework'),
+    'Framework\\' => array($baseDir . '/framework'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Aws\\' => array($vendorDir . '/aws/aws-sdk-php/src'),
-    'App\\' => array($baseDir . '/src'),
+    'App\\' => array($baseDir . '/app'),
 );

@@ -16,6 +16,7 @@ class ComposerStaticInitad989991e8ba54fa90d8ebc3e27eee78
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
+        'c1d952ed5c3af6ebf32482823b87babf' => __DIR__ . '/../..' . '/app/routes.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -105,7 +106,7 @@ class ComposerStaticInitad989991e8ba54fa90d8ebc3e27eee78
         ),
         'Framework\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Framework',
+            0 => __DIR__ . '/../..' . '/framework',
         ),
         'Dotenv\\' => 
         array (
@@ -117,7 +118,7 @@ class ComposerStaticInitad989991e8ba54fa90d8ebc3e27eee78
         ),
         'App\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 
