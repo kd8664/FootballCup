@@ -2,7 +2,7 @@
 
 namespace Framework;
 
-require_once 'Framework/Route.php';
+require_once 'framework/Route.php';
 
 class Request
 {
