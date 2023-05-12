@@ -10,10 +10,10 @@
 <body>
 <h1>Сведения о пользователе:</h1>
 <ul>
-    <?php foreach ($data['user'] as $user): ?>
+    <?php foreach ($data['users'] as $user): ?>
         <li>
-            <?=$user->firstname?>
-            <?=$user->lastname?>
+            <?=$user->name?>
+            <?=$user->surname?>
             <?=$user->email?>
         </li>
     <?php endforeach; ?>

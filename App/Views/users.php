@@ -12,8 +12,8 @@
 <ul>
     <?php foreach ($data['users'] as $user): ?>
         <li>
-            <?=$user->firstname?>
-            <?=$user->lastname?>
+            <?=$user->name?>
+            <?=$user->surname?>
             <?=$user->email?>
         </li>
     <?php endforeach; ?>
