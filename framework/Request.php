@@ -1,8 +1,5 @@
 <?php
-
 namespace Framework;
-
-require_once 'framework/Route.php';
 
 class Request
 {
@@ -11,14 +8,20 @@ class Request
     private $post_params;
     private $type;
 
+    private $user;
+
+    private $session;
+
     public function __construct()
     {
-        $this->path = $_SERVER['REQUEST_URI'];
+        $this->path = $_GET['path'];
         $this->get_params = $_GET;
         unset($this->get_params['path']);
         $this->post_params = $_POST;
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') $this->type = Route::METHOD_POST;
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') $this->type = Route::METHOD_GET;
+        if($_SERVER['REQUEST_METHOD'] === 'POST') $this->type = Route::METHOD_POST;
+        if($_SERVER['REQUEST_METHOD'] === 'GET') $this->type = Route::METHOD_GET;
+        $this->session = $_SESSION;
+        $_SESSION['msg'] = null;
     }
 
     /**
@@ -26,11 +29,7 @@ class Request
      */
     public function getPath()
     {
-        if (isset($this->path) && !empty($this->path)) {
-            return $this->path;
-        } else {
-            echo "Путь не определен";
-        }
+        return $this->path;
     }
 
     /**
@@ -72,4 +71,22 @@ class Request
     {
         $this->user = $user;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSession()
+    {
+        return $this->session;
+    }
+
+    /**
+     * @param mixed $session
+     */
+    public function setSession($session): void
+    {
+        $this->session = $session;
+    }
+
+
 }

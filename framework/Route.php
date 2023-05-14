@@ -1,7 +1,6 @@
 <?php
 
 namespace Framework;
-
 class Route
 {
     const METHOD_GET = 1;
@@ -19,12 +18,19 @@ class Route
         $this->type = $type;
         $this->requireAuth = $auth;
     }
+//    public function getParams(){
+//        $params = [];
+//        preg_match_all('/{([a-z]\w*)}/',$this->path,$params);
+//        echo "params: ";
+//       var_dump($params);
+//        echo "<br>";
+//        return $params[0];
+//  }
 
     public function getMask(){
-
         $path = $this->path;
         $path =  preg_replace("/{[a-z]\w*}/","(\w*)",$path);
-        echo "<br>Mask: ".$path."<br>";
+        echo "Mask: ".$path."<br>";
         return '~'.$path.'~';
     }
 
@@ -55,11 +61,18 @@ class Route
         return $this->type;
     }
 
+    /**
+
+     * @return bool
+     */
     public function isRequireAuth(): bool
     {
         return $this->requireAuth;
     }
 
+    /**
+     * @param bool $requireAuth
+     */
     public function setRequireAuth(bool $requireAuth): void
     {
         $this->requireAuth = $requireAuth;

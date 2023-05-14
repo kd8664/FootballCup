@@ -2,11 +2,16 @@
 
 namespace Framework;
 
+use App\Models\UserModel;
+
 class Auth
 {
-    public function hasAccess(Request $request): bool
+
+    public function enrichByUser(Request $request): Request
     {
-        $request->setUser((object)['id' => 1]);
-        return true;
+        if ($session = $request->getSession()) {
+            $request->setUser(UserModel::getById((int)$session['id']));
+        }
+        return $request;
     }
 }
