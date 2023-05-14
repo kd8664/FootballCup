@@ -6,6 +6,7 @@
     Router::addRoute(new Route('page/{page}', 'PageController@index', Route::METHOD_GET));
     Router::addRoute(new Route('user', 'UserController@index', Route::METHOD_GET, true));
     Router::addRoute(new Route('user/{id}', 'UserController@getById', Route::METHOD_GET, true));
+    Router::addRoute(new Route('matches', 'MatchController@index', Route::METHOD_GET));
     Router::addRoute(new Route('', 'PageController@index', Route::METHOD_GET));
 
 
